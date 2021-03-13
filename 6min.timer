@@ -1,0 +1,12 @@
+[Unit]
+Description=6min ticker
+
+[Timer]
+OnBootSec=6min
+OnUnitActiveSec=6min
+# Equivalent to:
+#OnCalendar=*:0/6
+Unit=6min.target
+
+[Install]
+WantedBy=multi-user.target

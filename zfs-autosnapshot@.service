@@ -1,0 +1,15 @@
+[Unit]
+Description=ZFS autosnapshot on %I ticker
+# The following allows to start multiple services on the same timer
+# by ticking a target, so don't just "start" (once) but "enable" with:
+# systemctl enable zfs-autosnapshot@6min.service
+Wants=%i.timer
+[Install]
+Also=%i.timer
+WantedBy=%i.target
+
+[Service]
+# oneshot would only run one time on the first timer event
+# simple is on every timer event
+Type=simple
+ExecStart=/usr/local/bin/zfs-autosnapshot.sh

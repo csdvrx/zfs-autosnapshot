@@ -1,0 +1,7 @@
+[Unit]
+Description=6min ticker target
+StopWhenUnneeded=yes
+
+[Install]
+Also=6min.timer
+WantedBy=multi-user.target
